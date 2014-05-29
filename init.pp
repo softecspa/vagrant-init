@@ -8,6 +8,7 @@ case $::operatingsystem {
     $librarian_command= 'librarian-puppet.bat install --clean'
     $librarian_path   = "C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;${::path}"
     $git_clone_user   = undef
+    $env_librarian    = undef
 
     include windows_path
     package{'GnuWin32: Wget-1.11.4-1':
@@ -28,6 +29,7 @@ case $::operatingsystem {
     $librarian_command= 'librarian-puppet install --clean'
     $librarian_path   = $::path
     $git_clone_user   = $user
+    $env_librarian    = ["HOME=/home/$user/"]
   }
 }
 
@@ -45,10 +47,11 @@ git::clone {'vagrant-lamp':
 }
 
 exec {'librarian-puppet-install':
-  command => $librarian_command,
-  cwd     => $vagrant_lamp_dir,
-  path    => $librarian_path,
-  user    => $git_clone_user
+  command     => $librarian_command,
+  cwd         => $vagrant_lamp_dir,
+  path        => $librarian_path,
+  user        => $git_clone_user,
+  environment => $env_librarian
 }
 
 Class['virtualbox'] ->
