@@ -34,7 +34,7 @@ case $::operatingsystem {
 }
 
 
-class {'virtualbox': tmp_dir  => $tmp_dir, use_apt => false}
+class {'virtualbox': tmp_dir  => $tmp_dir}
 class {'vagrant': tmp_dir => $tmp_dir}
 include librarian_puppet
 class {'git': tmp_dir => $tmp_dir}
