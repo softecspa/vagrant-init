@@ -1,4 +1,6 @@
 $user = '--USERNAME--'
+$virtualbox_version = '4.3.12-93733'
+$vagrant_version    = '1.6.3'
 
 case $::operatingsystem {
   'windows': {
@@ -34,8 +36,8 @@ case $::operatingsystem {
 }
 
 
-class {'virtualbox': tmp_dir  => $tmp_dir}
-class {'vagrant': tmp_dir => $tmp_dir}
+class {'virtualbox': tmp_dir  => $tmp_dir, version => $virtualbox_version }
+class {'vagrant': tmp_dir => $tmp_dir, version => $vagrant_version }
 include librarian_puppet
 class {'git': tmp_dir => $tmp_dir}
 
