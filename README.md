@@ -59,8 +59,10 @@ Semplicemente
 
 ### Avvio della macchina guest
 Una volta terminato il punto precedente avremo a disposizione una directory ~/vagrant-lamp contenente tutto il necessario per l'avvio della macchina LAMP di test:
+
     cd ~/vagrant-lamp
     vagrant up
 
 Una volta avviata, per connettersi
+
     vagrant ssh
