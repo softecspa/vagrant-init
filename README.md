@@ -47,6 +47,7 @@ Ad esempio, su Ubuntu Precise 12.04
 
 ### Installazione di git
 Semplicemente
+
     sudo apt-get install git-core
 
 ### Configurazione della macchina locale
