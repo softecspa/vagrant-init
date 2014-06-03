@@ -7,6 +7,7 @@ install all necessary to run vagrant guest
 
  * installare [Puppet](https://downloads.puppetlabs.com/windows/puppet-3.6.1.msi)
  * installare [Git per windows](https://github.com/msysgit/msysgit/releases/download/Git-1.9.2-preview20140411/Git-1.9.2-preview20140411.exe)
+    * **attenzione: durante l'installazione di git selezionare "use git in windows command prompt"**
  * aprire un prompt **con i privilegi di amministratore**
  * dare i seguenti comandi:
     * cd c:\
