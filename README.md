@@ -33,7 +33,7 @@ La seguente procedura è testata su Ubuntu Lucid 12.04
 ### installazione puppet
 Scarichiamo ed installiamo il deb di puppetlabs relativo alla nostra distrubuzione ed installiamo. Questo configurerà i repository di cui abbiamo bisogno.
 
- * *wget https://apt.puppetlabs.com/puppetlabs-release-<REALEASE_NAME>.deb*
+ * *wget https://apt.puppetlabs.com/puppetlabs-release-\<REALEASE_NAME\>.deb*
  * *sudo dpkg -i puppetlabs-release-<RELEASE_NAME>.deb*
  * *sudo apt-get update*
 
