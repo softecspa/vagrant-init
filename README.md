@@ -36,11 +36,29 @@ Scarichiamo ed installiamo il deb di puppetlabs relativo alla nostra distrubuzio
  * *wget https://apt.puppetlabs.com/puppetlabs-release-$REALEASE_NAME.deb*
  * *sudo dpkg -i puppetlabs-release-$RELEASE_NAME.deb*
  * *sudo apt-get update*
+ * *sudo apt-get install puppet*
 
 Ad esempio, su Ubuntu Precise 12.04
 
     wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
     sudo dpkg -i puppetlabs-release-precise.deb
     sudo apt-get update
+    sudo apt-get install puppet
 
+### Installazione di git
+Semplicemente
+    sudo apt-get install git-core
 
+### Configurazione della macchina locale
+ * cd ~
+ * git clone https://github.com/softecspa/vagrant-init.git vagrant-init
+ * cd vagrant-init
+ * sed -e s/--USERNAME--/$(whoami)/ -i init.pp
+ * sudo puppet apply init.pp --modulepath=modules
+
+### Avvio della macchina guest
+Una volta terminato il punto precedente avremo a disposizione una directory ~/vagrant-lamp contenente tutto il necessario per l'avvio della macchina LAMP di test:
+ * cd ~/vagrant-lamp
+ * vagrant up
+Una volta avviata, per connettersi
+ * vagrant ssh
