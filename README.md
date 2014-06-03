@@ -17,8 +17,7 @@ install all necessary to run vagrant guest
     puppet apply init.pp --modulepath=modules
 
 
- * Attendere finchè la procedura non sarà completata
- * chiudere il prompt
+Attendere finchè la procedura non sarà completata e chiudere il prompt
 
 La procedura dovrebbe aver creato una directory in *c:\vagrant-lamp*. Questa directory contiene tutto il necessario per avviare e configurare la nostra macchina
 
