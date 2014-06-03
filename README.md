@@ -10,10 +10,12 @@ install all necessary to run vagrant guest
  * aprire un prompt **con i privilegi di amministratore**
  * dare i seguenti comandi:
 
-        cd c:\
-        git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
-        cd vagrant-init
-        puppet apply init.pp --modulepath=modules
+
+    cd c:\
+    git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
+    cd vagrant-init
+    puppet apply init.pp --modulepath=modules
+
 
  * Attendere finchè la procedura non sarà completata
  * chiudere il prompt
