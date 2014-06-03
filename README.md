@@ -50,16 +50,16 @@ Semplicemente
     sudo apt-get install git-core
 
 ### Configurazione della macchina locale
- * cd ~
- * git clone https://github.com/softecspa/vagrant-init.git vagrant-init
- * cd vagrant-init
- * sed -e s/--USERNAME--/$(whoami)/ -i init.pp
- * sudo puppet apply init.pp --modulepath=modules
+    cd ~
+    git clone https://github.com/softecspa/vagrant-init.git vagrant-init
+    cd vagrant-init
+    sed -e s/--USERNAME--/$(whoami)/ -i init.pp
+    sudo puppet apply init.pp --modulepath=modules
 
 ### Avvio della macchina guest
 Una volta terminato il punto precedente avremo a disposizione una directory ~/vagrant-lamp contenente tutto il necessario per l'avvio della macchina LAMP di test:
- * cd ~/vagrant-lamp
- * vagrant up
+    cd ~/vagrant-lamp
+    vagrant up
 
 Una volta avviata, per connettersi
- * vagrant ssh
+    vagrant ssh
