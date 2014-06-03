@@ -9,12 +9,10 @@ install all necessary to run vagrant guest
  * installare [Git per windows](https://github.com/msysgit/msysgit/releases/download/Git-1.9.2-preview20140411/Git-1.9.2-preview20140411.exe)
  * aprire un prompt **con i privilegi di amministratore**
  * dare i seguenti comandi:
-
-
-    cd c:\
-    git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
-    cd vagrant-init
-    puppet apply init.pp --modulepath=modules
+    * cd c:\
+    * git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
+    * cd vagrant-init
+    * puppet apply init.pp --modulepath=modules
 
 
 Attendere finchè la procedura non sarà completata e chiudere il prompt
