@@ -1,4 +1,4 @@
-$user = '--USERNAME--'
+$user = '--fpizzurro--'
 $virtualbox_version = '4.3.12-93733'
 $vagrant_version    = '1.6.3'
 
@@ -40,7 +40,6 @@ git::clone {'vagrant-lamp':
 
 Class['virtualbox'] ->
 Class['vagrant'] ->
-Vagrant::Plugin['vagrant-librarian_puppet'] ->
+Vagrant::Plugin['vagrant-librarian-puppet'] ->
 Class['git'] ->
-Git::Clone['vagrant-lamp'] ->
-Exec['librarian-puppet-install']
+Git::Clone['vagrant-lamp']
