@@ -13,9 +13,7 @@ case $::operatingsystem {
     $env_librarian    = undef
 
     include windows_path
-    include powershell
 
-    Class['powershell'] ->
     Class['virtualbox']
   }
 
