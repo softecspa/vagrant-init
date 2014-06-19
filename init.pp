@@ -13,8 +13,6 @@ case $::operatingsystem {
     $env_librarian    = undef
 
     include windows_path
-
-    Class['virtualbox']
   }
 
   'ubuntu': {
