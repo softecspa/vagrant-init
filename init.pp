@@ -28,7 +28,7 @@ case $::operatingsystem {
 
 class {'virtualbox': tmp_dir  => $tmp_dir, version => $virtualbox_version }
 class {'vagrant': tmp_dir => $tmp_dir, version => $vagrant_version }
-include librarian_puppet
+#include librarian_puppet
 class {'git': tmp_dir => $tmp_dir}
 
 
@@ -38,17 +38,17 @@ git::clone {'vagrant-lamp':
   user  => $git_clone_user
 }
 
-exec {'librarian-puppet-install':
-  command     => $librarian_command,
-  cwd         => $vagrant_lamp_dir,
-  path        => $librarian_path,
-  user        => $git_clone_user,
-  environment => $env_librarian
-}
+#exec {'librarian-puppet-install':
+#  command     => $librarian_command,
+#  cwd         => $vagrant_lamp_dir,
+#  path        => $librarian_path,
+#  user        => $git_clone_user,
+#  environment => $env_librarian
+#}
 
 Class['virtualbox'] ->
 Class['vagrant'] ->
-Class['librarian_puppet'] ->
+#Class['librarian_puppet'] ->
 Class['git'] ->
 Git::Clone['vagrant-lamp'] ->
 Exec['librarian-puppet-install']
