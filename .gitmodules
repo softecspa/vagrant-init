@@ -25,3 +25,6 @@
 [submodule "modules/deb"]
 	path = modules/deb
 	url = https://github.com/softecspa/puppet-deb.git
+[submodule "modules/powershell"]
+	path = modules/powershell
+	url = https://github.com/softecspa/puppetlabs-powershell.git
