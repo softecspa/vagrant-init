@@ -13,15 +13,9 @@ case $::operatingsystem {
     $env_librarian    = undef
 
     include windows_path
-    package{'GnuWin32: Wget-1.11.4-1':
-      ensure          => 'installed',
-      source          => "${tmp_dir}\\wget-1.11.4-1-setup.exe",
-      install_options => ['/SILENT']
-    }
-    class {'cygwin': tmp_dir => $tmp_dir}
+    include powershell
 
-    Package['GnuWin32: Wget-1.11.4-1'] ->
-    Class['cygwin'] ->
+    Class['powershell'] ->
     Class['virtualbox']
   }
 
