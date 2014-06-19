@@ -1,4 +1,4 @@
-$user = '--fpizzurro--'
+$user = 'fpizzurro'
 $virtualbox_version = '4.3.12-93733'
 $vagrant_version    = '1.6.3'
 
@@ -10,7 +10,7 @@ case $::operatingsystem {
     $librarian_command= 'librarian-puppet.bat install --clean'
     $librarian_path   = "C:\\Program Files\\Puppet Labs\\Puppet\\bin;C:\\Program Files\\Puppet Labs\\Puppet\\sys\\ruby\\bin;${::path}"
     $git_clone_user   = undef
-    $env_librarian    = undef
+    $home             = ''
 
     include windows_path
   }
@@ -21,14 +21,14 @@ case $::operatingsystem {
     $librarian_command= 'librarian-puppet install --clean'
     $librarian_path   = $::path
     $git_clone_user   = $user
-    $env_librarian    = ["HOME=/home/$user/"]
+    $home             = "/home/$user"
   }
 }
 
 
 class {'virtualbox': tmp_dir  => $tmp_dir, version => $virtualbox_version }
 class {'vagrant': tmp_dir => $tmp_dir, version => $vagrant_version }
-vagrant::plugin{'vagrant-librarian-puppet':}
+vagrant::plugin{'vagrant-librarian-puppet': home => $home}
 class {'git': tmp_dir => $tmp_dir}
 
 
