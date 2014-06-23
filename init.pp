@@ -1,4 +1,4 @@
-$user = '--USERNAME--'
+$user = 'fpizzurro'
 $virtualbox_version = '4.3.12-93733'
 $vagrant_version    = '1.6.3'
 
