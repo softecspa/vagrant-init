@@ -14,13 +14,6 @@ case $::operatingsystem {
     $lamp_modules     = "$vagrant_lamp_dir\\modules"
 
     include windows_path
-
-    exec {'librarian-puppet install':
-      command => 'librarian-puppet install --clean',
-      cwd     => $vagrant_lamp_dir,
-      path    => $::path,
-      require => File[$lamp_modules]
-    }
   }
 
   'ubuntu': {
