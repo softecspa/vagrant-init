@@ -14,6 +14,13 @@ case $::operatingsystem {
     $lamp_modules     = "$vagrant_lamp_dir\\modules"
 
     include windows_path
+
+    exec {'librarian-puppet install':
+      command => 'librarian-puppet install --clean',
+      cwd     => $vagrant_lamp_dir,
+      path    => $::path,
+      require => File[$lamp_modules]
+    }
   }
 
   'ubuntu': {
@@ -24,16 +31,20 @@ case $::operatingsystem {
     $git_clone_user   = $user
     $home             = "/home/$user"
     $lamp_modules     = "$vagrant_lamp_dir/modules"
+    
+    vagrant::plugin{'vagrant-librarian-puppet': home => $home}
+
+    Class['vagrant'] ->
+    Vagrant::Plugin['vagrant-librarian-puppet']
   }
 }
 
 
 class {'virtualbox': tmp_dir  => $tmp_dir, version => $virtualbox_version }
 class {'vagrant': tmp_dir => $tmp_dir, version => $vagrant_version }
-vagrant::plugin{'vagrant-librarian-puppet': home => $home}
 class {'git': tmp_dir => $tmp_dir}
 
-
+include librarian_puppet
 
 git::clone {'vagrant-lamp':
   url   => 'github.com/softecspa/vagrant-lamp',
@@ -41,15 +52,12 @@ git::clone {'vagrant-lamp':
   user  => $git_clone_user
 }
 
-include librarian_puppet
-
 file {$lamp_modules:
   ensure  => directory
 }
 
 Class['virtualbox'] ->
 Class['vagrant'] ->
-Vagrant::Plugin['vagrant-librarian-puppet'] ->
 Class['git'] ->
 Class['librarian_puppet'] ->
 Git::Clone['vagrant-lamp'] ->
