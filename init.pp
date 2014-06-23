@@ -41,6 +41,8 @@ git::clone {'vagrant-lamp':
   user  => $git_clone_user
 }
 
+include librarian_puppet
+
 file {$lamp_modules:
   ensure  => directory
 }
@@ -49,5 +51,6 @@ Class['virtualbox'] ->
 Class['vagrant'] ->
 Vagrant::Plugin['vagrant-librarian-puppet'] ->
 Class['git'] ->
+Class['librarian_puppet'] ->
 Git::Clone['vagrant-lamp'] ->
 File[$lamp_modules]
