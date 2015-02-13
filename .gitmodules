@@ -1,6 +1,6 @@
 [submodule "modules/apt"]
 	path = modules/apt
-	url = https://github.com/softecspa/puppet-apt.git
+	url = https://github.com/puppetlabs/puppetlabs-apt
 [submodule "modules/cygwin"]
 	path = modules/cygwin
 	url = https://github.com/softecspa/puppet-cygwin.git
