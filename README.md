@@ -5,16 +5,18 @@ install all necessary to run vagrant guest
 
 ## procedura su Windows
 
- * installare [Puppet](https://downloads.puppetlabs.com/windows/puppet-3.6.1.msi)
- * installare [Git per windows](https://github.com/msysgit/msysgit/releases/download/Git-1.9.2-preview20140411/Git-1.9.2-preview20140411.exe)
+ * installare [Puppet](https://downloads.puppetlabs.com/windows/puppet-latest.msi)
+ * installare [Git per windows](https://github.com/msysgit/msysgit/releases/)
     * **attenzione: durante l'installazione di git selezionare "use git in windows command prompt"**
  * aprire un prompt di puppet **con i privilegi di amministratore**
-    * start -> Programmi -> Puppet -> Start command prompt with puppet
+    * start -> Programmi -> Puppet -> Start command prompt with puppet (tasto destro, esegui come amministratore)
  * dare i seguenti comandi:
-    * cd c:\
-    * git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
-    * cd vagrant-init
-    * puppet apply init.pp --modulepath=modules
+
+
+    cd c:\
+    git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
+    cd vagrant-init
+    puppet apply init.pp --modulepath=modules
 
 Attendere finchè la procedura non sarà completata e chiudere il prompt.
 
@@ -23,9 +25,9 @@ La procedura dovrebbe aver creato una directory in *c:\vagrant-lamp*. Questa dir
 ### Avviare la macchina
 Aprire un prompt di puppet (start -> Programmi -> Puppet -> Start command prompt with puppet), stavolta **senza i privilegi di amministratore**
 
-    * cd c:\vagrant-lamp
-    * librarian-puppet install --clean
-    * vagrant up
+    cd c:\vagrant-lamp
+    librarian-puppet install --clean
+    vagrant up
 
 ### Pulizia
 Se tutti i passi precedenti sono stati eseguiti correttamente è possibile eliminare la directory *c:\vagrant-init*
@@ -36,10 +38,10 @@ La seguente procedura è testata su Ubuntu Lucid 12.04
 ### installazione puppet
 Scarichiamo ed installiamo il deb di puppetlabs relativo alla nostra distrubuzione ed installiamo. Questo configurerà i repository di cui abbiamo bisogno.
 
- * *wget https://apt.puppetlabs.com/puppetlabs-release-$REALEASE_NAME.deb*
- * *sudo dpkg -i puppetlabs-release-$RELEASE_NAME.deb*
- * *sudo apt-get update*
- * *sudo apt-get install puppet*
+    wget https://apt.puppetlabs.com/puppetlabs-release-$REALEASE_NAME.deb
+    sudo dpkg -i puppetlabs-release-$RELEASE_NAME.deb
+    sudo apt-get update
+    sudo apt-get install puppet
 
 Ad esempio, su Ubuntu Precise 12.04
 
