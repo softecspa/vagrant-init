@@ -22,6 +22,7 @@ install all necessary to run vagrant guest
     cd vagrant-init
     puppet apply init.pp --modulepath=modules
 
+
 Attendere finchè la procedura non sarà completata e chiudere il prompt.
 
 
