@@ -18,9 +18,9 @@ install all necessary to run vagrant guest
 
 
         cd c:\
-    git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
-    cd vagrant-init
-    puppet apply init.pp --modulepath=modules
+        git clone --recurse https://github.com/softecspa/vagrant-init vagrant-init
+        cd vagrant-init
+        puppet apply init.pp --modulepath=modules
 
 Attendere finchè la procedura non sarà completata e chiudere il prompt.
 
